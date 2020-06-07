@@ -1,0 +1,14 @@
+CCTS_CCT_SchemaModule-2.1.xsd
+UBL-CommonAggregateComponents-2.1.xsd
+UBL-CommonBasicComponents-2.1.xsd
+UBL-CommonExtensionComponents-2.1.xsd
+UBL-CommonSignatureComponents-2.1.xsd
+UBL-CoreComponentParameters-2.1.xsd
+UBL-ExtensionContentDataType-2.1.xsd
+UBL-QualifiedDataTypes-2.1.xsd
+UBL-SignatureAggregateComponents-2.1.xsd
+UBL-SignatureBasicComponents-2.1.xsd
+UBL-UnqualifiedDataTypes-2.1.xsd
+UBL-XAdESv132-2.1.xsd
+UBL-XAdESv141-2.1.xsd
+UBL-xmldsig-core-schema-2.1.xsd

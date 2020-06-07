@@ -1,0 +1,1890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" 
+                 href="db/spec-0.7/stylesheets/oasis-note-html-offline.xsl"?>
+<!--
+  $Id: UBL-2.1-JSON-v1.0-cnd02.xml,v 1.2 2017/04/05 17:20:06 admin Exp $
+  Single quote: &#8217; Double quotes: &#8220;&#8221; 
+-->
+<!DOCTYPE article
+  PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "db/spec-0.7/docbook/docbookx.dtd"
+[ 
+<!-- the document properties-->
+<!ENTITY dir "UBL-2.1-JSON">
+<!ENTITY name "&dir;-v&version;">
+<!ENTITY pversion "NONE">
+<!ENTITY version "1.0">
+<!ENTITY stage "cnd02">
+<!ENTITY note "Committee Note Draft 02">
+<!ENTITY this-loc     "http://docs.oasis-open.org/ubl/&dir;/v&version;/&stage;">
+<!ENTITY previous-loc "">
+<!ENTITY latest-loc   "http://docs.oasis-open.org/ubl/&dir;/v&version;">
+<!ENTITY pubdate "12 April 2017"><!--remove time from pub date-->
+]>
+<article status="&note;">
+  <articleinfo>
+    <productname>&name;</productname>
+    <productnumber>&stage;</productnumber>
+    <releaseinfo role="track">Non-standards Track</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-this">&this-loc;/&name;-&stage;.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-this-authoritative">&this-loc;/&name;-&stage;.xml</releaseinfo>
+    <!--
+    <releaseinfo role="OASIS-specification-previous"
+      >&previous-loc;/UBL-2.1.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous"
+      >&previous-loc;/UBL-2.1.pdf</releaseinfo>
+    <releaseinfo role="OASIS-specification-previous-authoritative"
+      >&previous-loc;/UBL-2.1.xml</releaseinfo>
+-->
+    <!-- generic form of above
+      <releaseinfo role="OASIS-specification-previous"
+         >&previous-loc;/&name;-&version;.html</releaseinfo>
+      <releaseinfo role="OASIS-specification-previous"
+         >&previous-loc;/&name;-&version;.pdf</releaseinfo>
+      <releaseinfo role="OASIS-specification-previous-authoritative"
+         >&previous-loc;/&name;-&version;.xml</releaseinfo> -->
+    <releaseinfo role="OASIS-specification-latest">&latest-loc;/&dir;-v&version;.html</releaseinfo>
+    <releaseinfo role="OASIS-specification-latest">&latest-loc;/&dir;-v&version;.pdf</releaseinfo>
+    <!-- generic form of above
+      <releaseinfo role="OASIS-specification-latest"
+         >&latest-loc;/&name;-&version;.html</releaseinfo>
+      <releaseinfo role="OASIS-specification-latest"
+         >&latest-loc;/&name;-&version;.pdf</releaseinfo>
+      <releaseinfo role="OASIS-specification-latest-authoritative"
+         >&latest-loc;/&name;-&version;.xml</releaseinfo> -->
+    <title>UBL 2.1 JSON Alternative Representation Version &version;</title>
+    <releaseinfo role="committee"><ulink url="https://www.oasis-open.org/committees/ubl/" conformance="skip">OASIS Universal
+      Business Language TC</ulink></releaseinfo>
+    <authorgroup>
+      <editor>
+        <firstname>Kenneth</firstname>
+        <surname>Bengtsson</surname>
+        <affiliation>
+          <orgname>Individual</orgname>
+        </affiliation>
+        <email>kenneth@alfa1lab.com</email>
+      </editor>
+      <editor>
+        <firstname>Erlend</firstname>
+        <surname>Klakegg Bergheim</surname>
+        <affiliation>
+          <orgname><ulink conformance="skip" url="http://www.difi.no">Difi-Agency for Public
+              Management and <phrase lang="none">eGovernment</phrase></ulink></orgname>
+        </affiliation>
+        <email>erlend.klakegg.bergheim@difi.no</email>
+      </editor>
+      <editor>
+        <firstname>G. Ken</firstname>
+        <surname>Holman</surname>
+        <affiliation>
+          <orgname><ulink conformance="skip"
+              url="http://www.CraneSoftwrights.com/links/info-ubl21.htm">Crane Softwrights
+              Ltd.</ulink></orgname>
+        </affiliation>
+        <email>gkholman@CraneSoftwrights.com</email>
+      </editor>
+      <othercredit>
+        <firstname>G. Ken</firstname>
+        <surname>Holman</surname>
+        <affiliation>
+          <orgname><ulink conformance="skip"
+              url="http://www.CraneSoftwrights.com/links/info-ubl21.htm">Crane Softwrights
+              Ltd.</ulink></orgname>
+        </affiliation>
+        <email>gkholman@CraneSoftwrights.com</email>
+      </othercredit>
+    </authorgroup>
+    <pubdate>&pubdate;</pubdate>
+    <copyright>
+      <year>2017</year>
+    </copyright>
+    <legalnotice role="additional">
+      <title>Additional artefacts</title>
+      <para>This prose specification is one component of a Work Product that also includes:</para>
+      <itemizedlist>
+        <listitem>
+          <para>JSON examples:</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink url="&this-loc;/json/">&this-loc;/json/</ulink></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>JSON schemas:</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink url="&this-loc;/json-schema/">&this-loc;/json-schema/</ulink></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>Default validation test environment:</para>
+          <itemizedlist>
+            <listitem>
+              <para><ulink url="&this-loc;/val/">&this-loc;/val/</ulink></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
+      <para>The ZIP containing the complete files of this release is found in the directory:</para>
+      <itemizedlist>
+        <listitem>
+          <para><ulink url="&this-loc;/&name;-&stage;.zip"
+            >&this-loc;/&name;-&stage;.zip</ulink></para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+    <legalnotice role="related">
+      <title>Related work</title>
+      <para>This note is related to:</para>
+      <bibliolist>
+        <bibliomixed conformance="skip">
+          <citetitle>Universal Business Language Version 2.1.</citetitle>
+          <date>04 November 2013. </date>
+          <releaseinfo>OASIS Standard. </releaseinfo>
+          <bibliomisc>
+            <ulink url="http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html"
+              >http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html</ulink>. </bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+      <para>This note is an implementation of the rules for JSON specified in:</para>
+      <bibliolist>
+        <bibliomixed conformance="skip">
+          <citetitle>Business Document Naming and Design Rules Version 1.1.</citetitle>
+          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken
+            Holman.</bibliomisc>
+          <date>11 January 2017.</date>
+          <releaseinfo>OASIS Committee Specification Draft 01 / Public Review Draft 01.</releaseinfo>
+          <bibliomisc>
+            <ulink
+              url="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/csprd01/Business-Document-NDR-v1.1-csprd01.html"
+              >http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/csprd01/Business-Document-NDR-v1.1-csprd01.html</ulink>.
+            Latest version: <ulink
+              url="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/Business-Document-NDR-v1.1.html"
+              >http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/Business-Document-NDR-v1.1.html</ulink>.
+          </bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+    </legalnotice>
+    <abstract>
+      <para>This committee note supplements the OASIS Universal Business Language version 2.1
+        release with an alternative expression of the UBL sample XML documents in JSON syntax, and a
+        JSON schema expression of all 65 XSD schemas in conformance to the OASIS Business Document
+        Naming and Design Rules Version 1.1.</para>
+    </abstract>
+    <legalnotice role="status" id="STATUS">
+      <title>Status</title>
+      <!--<para>This <ulink conformance="skip"
+          url="https://www.oasis-open.org/policies-guidelines/tc-process#dWorkingDraft">Working
+          Draft</ulink> (WD) has been produced by one or more TC Members; it has not yet been voted
+        on by the TC or <ulink conformance="skip"
+          url="https://www.oasis-open.org/policies-guidelines/tc-process#committeeDraft"
+          >approved</ulink> as a Committee Note Draft. The OASIS document <ulink conformance="skip"
+          url="https://www.oasis-open.org/policies-guidelines/tc-process#standApprovProcess"
+          >Approval Process</ulink> begins officially with a TC vote to approve a WD as a Committee
+        Draft. A TC may approve a Working Draft, revise it, and re-approve it any number of times as
+        a Committee Draft. </para>-->
+      <para>This document was last revised or approved by the OASIS Universal Business Language TC
+        on the above date. The level of approval is also listed above. Check the &#x201c;Latest
+        version&#x201d; location noted above for possible later revisions of this document. Any
+        other numbered Versions and other technical work produced by the Technical Committee (TC)
+        are listed at <ulink conformance="skip"
+          url="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical"
+          >https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=ubl#technical</ulink>.</para>
+      <para>TC members should send comments on this note to the TC’s email list. Others should send
+        comments to the TC’s public comment list, after subscribing to it by following the
+        instructions at the “<ulink conformance="skip"
+          url="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl">Send A
+          Comment</ulink>&#8221; button on the TC&#8217;s web page at <ulink
+          url="https://www.oasis-open.org/committees/ubl/"
+          >https://www.oasis-open.org/committees/ubl/</ulink>.</para>
+      <para>For information on whether any patents have been disclosed that may be essential to
+        implementing this note, and any offers of patent licensing terms, please refer to the
+        Intellectual Property Rights section of the Technical Committee web page at <ulink
+          url="https://www.oasis-open.org/committees/ubl/ipr.php"
+          >https://www.oasis-open.org/committees/ubl/ipr.php</ulink>.</para>
+      <para>Note that any machine-readable content (aka Computer Language Definitions) declared
+        Normative for this Work Product is provided in separate plain text files. In the event of a
+        discrepancy between any such plain text file and display content in the Work Product’s prose
+        narrative document(s), the content in the separate plain text file prevails.</para>
+      <para>See <xref linkend="A-RELEASE-NOTES"/> for more information regarding this release
+        package.</para>
+    </legalnotice>
+    <legalnotice role="citation" id="CITATION">
+      <title>Citation format</title>
+      <para>When referencing this note the following citation format should be used:</para>
+      <bibliolist id="citationfmt">
+        <bibliomixed id="UBL-2.1-JSON" conformance="skip">
+          <abbrev>UBL-2.1-JSON</abbrev>
+          <citetitle>UBL 2.1 JSON Alternative Representation Version &version;.</citetitle>
+          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken
+            Holman.</bibliomisc>
+          <date>&pubdate;.</date>
+          <releaseinfo>OASIS &note;.</releaseinfo>
+          <bibliomisc>
+            <ulink url="&this-loc;/&dir;-v&version;-&stage;.html"
+              >&this-loc;/&dir;-v&version;-&stage;.html</ulink>. Latest version: <ulink
+              url="&latest-loc;/&name;.html">&latest-loc;/&name;.html</ulink>. </bibliomisc>
+        </bibliomixed>
+      </bibliolist>
+    </legalnotice>
+    <legalnotice role="notices">
+      <title>Notices</title>
+      <para>Copyright &#169; OASIS Open 2017. All Rights Reserved. </para>
+      <para>All capitalized terms in the following text have the meanings assigned to them in the
+        OASIS Intellectual Property Rights Policy (the &#8220;OASIS IPR Policy&#8221;). The full
+          <ulink url="http://www.oasis-open.org/policies-guidelines/ipr" conformance="skip"
+          >Policy</ulink> may be found at the OASIS website.</para>
+      <para>This document and translations of it may be copied and furnished to others, and
+        derivative works that comment on or otherwise explain it or assist in its implementation may
+        be prepared, copied, published, and distributed, in whole or in part, without restriction of
+        any kind, provided that the above copyright notice and this section are included on all such
+        copies and derivative works. However, this document itself may not be modified in any way,
+        including by removing the copyright notice or references to OASIS, except as needed for the
+        purpose of developing any document or deliverable produced by an OASIS Technical Committee
+        (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy,
+        must be followed) or as required to translate it into languages other than English.</para>
+      <para>The limited permissions granted above are perpetual and will not be revoked by OASIS or
+        its successors or assigns.</para>
+      <para>This document and the information contained herein is provided on an &#8220;AS IS&#8221;
+        basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+        ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS
+        AND ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</para>
+      <para>OASIS requests that any OASIS Party or any other party that believes it has patent
+        claims that would necessarily be infringed by implementations of this OASIS Committee Note
+        or OASIS Standard notify OASIS TC Administrator and provide an indication of its willingness
+        to grant patent licenses to such patent claims in a manner consistent with the IPR Mode of
+        the OASIS Technical Committee that produced this note.</para>
+      <para>OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim
+        of ownership of any patent claims that would necessarily be infringed by implementations of
+        this note by a patent holder that is not willing to provide a license to such patent claims
+        in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this
+        note. OASIS may include such claims on its website, but disclaims any obligation to do
+        so.</para>
+      <para>OASIS takes no position regarding the validity or scope of any intellectual property or
+        other rights that might be claimed to pertain to the implementation or use of the technology
+        described in this document or the extent to which any license under such rights might or
+        might not be available; neither does it represent that it has made any effort to identify
+        any such rights. Information on OASIS&#8217; procedures with respect to rights in any
+        document or deliverable produced by an OASIS Technical Committee can be found on the OASIS
+        website. Copies of claims of rights made available for publication and any assurances of
+        licenses to be made available, or the result of an attempt made to obtain a general license
+        or permission for the use of such proprietary rights by implementers or users of this OASIS
+        Committee Note or OASIS Standard, can be obtained from the OASIS TC Administrator. OASIS
+        makes no representation that any information or list of intellectual property rights will at
+        any time be complete, or that any claims in such list are, in fact, Essential Claims.</para>
+      <para>The name &#8220;OASIS&#8221; is a trademark of <ulink url="http://www.oasis-open.org"
+          conformance="skip">OASIS</ulink>, the owner and developer of this note, and should be used
+        only to refer to the organization and its official outputs. OASIS welcomes reference to, and
+        implementation and use of, notes, while reserving the right to enforce its marks against
+        misleading uses. Please see <ulink
+          url="http://www.oasis-open.org/policies-guidelines/trademark.php"
+          >http://www.oasis-open.org/policies-guidelines/trademark.php</ulink> for guidance.</para>
+    </legalnotice>
+  </articleinfo>
+  <section id="S-INTRODUCTION">
+    <title>Introduction</title>
+    <section id="S-OVERVIEW">
+      <title>Overview</title>
+      <para>The OASIS Universal Business Language (UBL) defines a generic XML interchange format for
+        business documents that can be restricted or extended to meet the requirements of particular
+        industries. UBL includes a suite of <link linkend="xsd">XML Schemas</link> with which one
+        can validate the structural content of an XML document against the constraints of the
+        vocabulary.</para>
+      <para>For users of JSON syntax, this note publishes a suite of <link linkend="json-schema"
+          >JSON schemas</link> with which one can validate the structural content of a JSON document
+        against the constraints of the UBL 2.1 vocabulary. Also included is a transliteration of all
+        of the UBL 2.1 example documents in JSON syntax with which one can test a number of the JSON
+        schemas.</para>
+      <para>The structural patterns exhibited by JSON schemas that conform to the OASIS Business
+        Document Naming and Design Rules Version 1.1 <xref linkend="bdndr"/> are distinctive as
+        document interchange structures. As such, their intent is only to convey in syntax the
+        information content reflecting the same abstract model of the UN/CEFACT Core Component
+        Technical Specification 2.01 <xref linkend="ccts"/> with which the document model was
+        designed. Accordingly, and in parallel to an application’s use of XML syntax, the JSON
+        syntax used is generic in nature and is neither streamlined nor optimized for any particular
+        application’s objectives. </para>
+      <para>As one would undertake the unmarshalling of XML syntax into internal application data
+        structures suitable for processing, one must also undertake the unmarshalling of JSON
+        interchange syntax into whatever internal application data structures (or other JSON
+        representations) of the content that are suitable for the task at hand. Of note, it has been
+        observed that there are commercial JSON database tools unable to ingest this JSON
+        interchange syntax directly without an application massaging the content first to suit the
+        database schema necessary to enable a particular arbitrary use. Nevertheless, the JSON
+        syntax used does conform to the published standard <xref linkend="json"/> and has been
+        successfully demonstrated to be ingested by Python and Node.js applications and so is not a
+        barrier to use for application developers.</para>
+      <para>The UBL Technical Committee makes no assumptions regarding how the XML syntax of UBL
+        documents is to be managed by applications, and so similarly makes no assumptions regarding
+        how any application’s use of the JSON syntax is to be managed. With the only objective being
+        the lossless interchange of document content, the structures in both XML and JSON syntax are
+        designed with forward and backward compatibility in mind for applications that ingest the
+        content. Certain constraints in future versions of UBL may be lessened in a backward
+        compatible fashion, such as in regard to cardinality, and so applications can successfully
+        ingest the arrays of objects used in this regard to implement cardinality. Moreover,
+        transliteration can be accomplished without semantic interpretation of any contents that
+        would require specialized treatment of any given construct.</para>
+      <para>The section <xref linkend="S-PACKAGE-STRUCTURE"/> outlines the top-level content of the
+        ZIP file associated with this Committee Note. The directories are named such that the
+        directories in this package can be overlaid on top of the directories of the UBL
+        distribution without overwriting any pre-existing UBL file. In another environment, one
+        would copy the entire <literal>json-schema/</literal> subdirectory contents and then users
+        would access the individual document schemas in the <literal>json-schema/maindoc/</literal>
+        subdirectory. These schemas make relative references to shared fragments found in the
+          <literal>json-schema/common/</literal> subdirectory and as such those shared fragments are
+        not referenced directly by users as they are not well-formed schemas in their own right
+        (there is no “<literal>$schema</literal>” property).</para>
+      <para>The UBL document schemas make provision for constraining UBL extension metadata but not
+        for constraining extension content. The user wishing to validate extension content is
+        expected to replace the <literal>common/UBL-ExtensionContentDataType-2.1.json</literal>
+        fragment with one’s own specification of extension constraints. No other schema fragment is
+        expected to be touched by users.</para>
+    </section>
+    <section id="S-TERMINOLOGY">
+      <title>Terminology</title>
+      <section id="S-TERMS-AND-DEFINITIONS">
+        <title>Terms and Definitions</title>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold">Document</emphasis></term>
+            <listitem>
+              <para>A set of information components that are exchanged as part of a business
+                transaction; for example, in placing an order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold">JSON schema</emphasis></term>
+            <listitem>
+              <para>A JSON document <xref linkend="json"/> definition conforming to the JSON schema
+                language <xref linkend="json-schema"/>.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry id="xsd">
+            <term><emphasis role="bold">XSD schema</emphasis></term>
+            <listitem>
+              <para>An XML document <xref linkend="xml"/> definition conforming to the W3C XML
+                Schema language <xref linkend="xsd1"/><xref linkend="xsd2"/>.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>The keywords MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT,
+          RECOMMENDED, MAY and OPTIONAL, when they appear in this document, are to be interpreted as
+          described in <xref linkend="rfc2119"/>.</para>
+      </section>
+      <section id="S-SYMBOLS-AND-ABBREVIATIONS">
+        <title>Symbols and Abbreviations</title>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold">JSON</emphasis></term>
+            <listitem>
+              <para>Java Script Object Notation <xref linkend="json"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold">XML</emphasis></term>
+            <listitem>
+              <para>Extensible Markup Language <xref linkend="xml"/></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold">XSD</emphasis></term>
+            <listitem>
+              <para>W3C XML Schema Language <xref linkend="xsd1"/><xref linkend="xsd2"/></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </section>
+    </section>
+    <section id="S-REFERENCES">
+      <title>References</title>
+      <bibliolist>
+        <bibliomixed id="bdndr"><abbrev>BDNDR</abbrev>
+          <citetitle>Business Document Naming and Design Rules Version 1.1.</citetitle>
+          <bibliomisc>Edited by Kenneth Bengtsson, Erlend Klakegg Bergheim and G. Ken
+            Holman.</bibliomisc>
+          <date>11 January 2017.</date>
+          <releaseinfo>OASIS Committee Specification Draft 01 / Public Review Draft 01.</releaseinfo>
+          <bibliomisc>
+            <ulink
+              url="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/csprd01/Business-Document-NDR-v1.1-csprd01.html"
+              >http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/csprd01/Business-Document-NDR-v1.1-csprd01.html</ulink>.
+            Latest version: <ulink
+              url="http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/Business-Document-NDR-v1.1.html"
+              >http://docs.oasis-open.org/ubl/Business-Document-NDR/v1.1/Business-Document-NDR-v1.1.html</ulink>.
+          </bibliomisc>
+        </bibliomixed>
+        <bibliomixed id="ccts"><abbrev>CCTS</abbrev>
+          <title>UN/CEFACT Core Component Technical Specification - Part 8 of the ebXML Framework) </title>
+          <date>15 November 2003</date><edition>Version 2.01</edition><citetitle><ulink
+              url="http://www.unece.org/fileadmin/DAM/cefact/codesfortrade/CCTS/CCTS_V2-01_Final.pdf"
+              >http://www.unece.org/fileadmin/DAM/cefact/codesfortrade/CCTS/CCTS_V2-01_Final.pdf</ulink></citetitle></bibliomixed>
+        <bibliomixed id="json"><abbrev>ISO 21778 - ECMA JSON</abbrev>
+          <title>ISO/IEC 21778 Information technology &#8212; The JSON data interchange
+            format</title>
+          <citetitle>
+            <ulink url="http://standards.iso.org/ittf/PubliclyAvailableStandards/"
+              >http://standards.iso.org/ittf/PubliclyAvailableStandards/</ulink></citetitle>,
+            <title>ECMA 404 The JSON data interchange format</title>
+          <citetitle>
+            <ulink url="https://www.ecma-international.org/publications/standards/Ecma-404.htm"
+              >https://www.ecma-international.org/publications/standards/Ecma-404.htm</ulink>
+          </citetitle>
+        </bibliomixed>
+        <bibliomixed id="json-schema"><abbrev>JSON Schema</abbrev>
+          <title>JSON Schema Validation: A Vocabulary for Structural Validation of JSON</title>, <author>
+            <firstname>A.</firstname>
+            <surname>Wright</surname>
+          </author>, <author>
+            <firstname>G.</firstname>
+            <surname>Luff</surname>
+          </author>, Editors, <citetitle>
+            <ulink url="http://json-schema.org/latest/json-schema-validation.html"
+              >http://json-schema.org/latest/json-schema-validation.html</ulink></citetitle></bibliomixed>
+        <bibliomixed id="rfc2119"><abbrev>RFC2119</abbrev><citetitle>
+            <ulink url="http://www.faqs.org/rfcs/rfc2119.html" conformance="skip">Key words for use
+              in RFCs to Indicate Requirement Levels</ulink>
+          </citetitle></bibliomixed>
+        <bibliomixed id="xml"><abbrev>XML</abbrev><citetitle><ulink
+              url="http://www.w3.org/TR/2000/REC-xml-20001006" conformance="skip">Extensible Markup
+              Language (XML) 1.0 (Second Edition), W3C Recommendation 6 October
+            2000</ulink></citetitle></bibliomixed>
+        <bibliomixed id="xsd1"><abbrev>XSD1</abbrev><citetitle><ulink
+              url="http://www.w3.org/TR/2004/REC-xmlschema-1-20041028/" conformance="skip">XML
+              Schema Part 1: Structures. Second Edition. W3C Recommendation 28 October
+            2004</ulink></citetitle></bibliomixed>
+        <bibliomixed id="xsd2"><abbrev>XSD2</abbrev><citetitle><ulink
+              url="http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/" conformance="skip">XML
+              Schema Part 2: Datatypes. Second Edition. W3C Recommendation 28 October
+            2004</ulink></citetitle></bibliomixed>
+      </bibliolist>
+    </section>
+  </section>
+  <section id="S-CCTS-AND-JSON">
+    <title>CCTS and JSON</title>
+    <section id="S-CCTS-COMPONENT-REVIEW">
+      <title>CCTS component review</title>
+      <para>The UBL Technical Committee uses the UN/CEFACT Core Components Technical Specification
+        (CCTS) 2.01 <xref linkend="ccts"/> to create the semantic models of business documents.
+        These abstract models are then used to generate concrete syntax models and the validation
+        artefacts with which to constrain instances of that syntax. There is nothing in the model
+        itself that is specific to any syntax. Naming and design rules <xref linkend="bdndr"/> for
+        building the models (as information bundles) and for generating the syntax validation
+        artefacts for documents (as user data) are used by the committee to create the deliverables
+        for users. This is depicted in <xref
+          linkend="F-NAMING-AND-DESIGN-RULES-IN-AN-OPEN-EDI-APPLICATION"/>.</para>
+      <para><figure id="F-NAMING-AND-DESIGN-RULES-IN-AN-OPEN-EDI-APPLICATION">
+          <title>Naming and Design Rules in an Open-edi Application</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="art/Business-Document-NDR-v1.1-Open-edi-Application.png"
+                contentwidth="750px"/>
+            </imageobject>
+            <textobject>
+              <phrase>Open-edi Application</phrase>
+            </textobject>
+          </mediaobject>
+        </figure>When modeling, CCTS governs how to define a class of business documents by
+        specifying the available components as information bundles to be deployed to users as user
+        data. An ABIE (aggregate) component specifies a collection of constituent components of
+        ASBIE components (associations to ABIEs found in a common library) and BBIE components
+        (basic indivisible portions of content that may have metadata). The Document ABIE is simply
+        an ABIE that is not defined in the common library. A Document ABIE specifies the components
+        at the apex of a business document. A Library ABIE specifies the components comprising an
+        ASBIE at the branches of the business document tree form. BBIE components are the leaves of
+        the business document where content is found in the context of the branches.</para>
+      <para>From an abstract information bundle perspective, a given business document is comprised
+        of its Document ABIE with its indivisible BBIEs and with its (divisible) ASBIEs that each
+        have their own BBIEs and ASBIEs.</para>
+      <para>Each BBIE is defined by its data type. The available Core Component Types are summarized
+        in Chapter 8 of the CCTS 2.01 specification <xref linkend="ccts"/>. Each type has a
+        mandatory content component and a number of optional metadata supplementary components. The
+        interpretation of the content is informed by the values of its given supplementary
+        components. The data type content and supplementary component values are, ostensibly, either
+        numbers, strings or Boolean values. Interpreting the strings to be abstract concepts such as
+        date and time is up to the program. </para>
+    </section>
+    <section id="S-MARSHALLING-CCTS-TO-JSON">
+      <title>Marshalling CCTS to JSON</title>
+      <section id="S-BUSINESS-INFORMATION-ENTITY-BIE-NAMES">
+        <title>Business Information Entity (BIE) names</title>
+        <para>There are four groups of names made from: the names of the Document ABIEs, the names
+          of BBIEs, the names of both Library ABIEs and the ASBIEs that point to them, and the names
+          of extension scaffolding and metadata items. In fact there are many groups of Document
+          ABIEs as each Document ABIE is in a group of one of only itself. </para>
+        <para>Names in XML documents are qualified with namespace URI strings. These UBL JSON
+          schemas provide for preserving the four uses of XML namespaces in a source XML document
+          that might have been transliterated to JSON syntax. This allows the JSON document to be
+          “round-tripped” back to XML syntax should it be necessary. Accommodating extension content
+          is up to extension designers.</para>
+      </section>
+      <section id="S-DOCUMENT-ABIE-EXPRESSION">
+        <title>Document ABIE expression</title>
+        <para>Each JSON serialization begins as an apex object containing up to five properties in
+          any order.</para>
+        <para>The following four properties are for documentary or transliteration purposes, and for
+          completeness should be present:</para>
+        <itemizedlist>
+          <listitem>
+            <para>name &#x201c;<literal>_D</literal>&#x201d; with the string value of the Document
+              ABIE namespace URI;</para>
+          </listitem>
+          <listitem>
+            <para>name &#x201c;<literal>_S</literal>&#x201d; with the string value of the ASBIE
+              namespace URI (that is, the Library ABIE namespace URI);</para>
+          </listitem>
+          <listitem>
+            <para>name &#x201c;<literal>_B</literal>&#x201d; with the string value of the BBIE
+              namespace URI; and</para>
+          </listitem>
+          <listitem>
+            <para>name &#x201c;<literal>_E</literal>&#x201d; with the string value of the extension
+              namespace URI (when extensions are being used).</para>
+          </listitem>
+        </itemizedlist>
+        <para>That apex object always contains a property with the name of the Document ABIE and the
+          value being an array containing a single Document ABIE object.</para>
+        <para>The Document ABIE object contains properties, in any order, of all of the ASBIE and
+          BBIE members in actual use of those available as specified by the Document ABIE. Each
+          property is defined as an array.</para>
+        <para>The Document ABIE object may contain a single property representing the apex of the
+          scaffolding of foreign extension content. This name is defined in UBL to be
+            “<literal>UBLExtensions</literal>”.</para>
+        <para>A UBL example of a serialized Document ABIE with some content elided by the ellipsis
+          for brevity, leaving two BBIEs followed by an ASBIE that itself has two BBIEs is as
+          follows:</para>
+        <programlisting>{"_D":"urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+ "_S":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+ "_B":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+ "Invoice":[{
+ "ID":[{"IdentifierContent":"123"}],
+ "IssueDate":[{"DateContent":"2011-09-22"}],
+ "InvoicePeriod":[{
+  "StartDate":[{"DateContent":"2011-08-01"}],
+  "EndDate":[{"DateContent":"2011-08-31"}]
+ }],
+...
+}]}</programlisting>
+      </section>
+      <section id="S-ASBIE-EXPRESSION">
+        <title>ASBIE expression</title>
+        <para>Each sequence of one or more consecutive ASBIE components of the same name in an
+          information bundle are serialized in user data as a single array property of its parent
+          ASBIE or Document ABIE object.</para>
+        <para>The one name for that property is the name of the ASBIE. The one value for that
+          property is an array of one or more objects, each object representing, in array order, the
+          sequence order of the consecutive ASBIEs. If there are no ASBIEs of a given name, the
+          property is absent.</para>
+        <para>Each object in the ASBIE array contains as its properties all of the ASBIE and BBIE
+          members in actual use of those available as specified by the Library ABIE that defines the
+          ASBIE.</para>
+        <para>This serialization for one “<literal>Party</literal>” ASBIE has one ASBIE child named
+            “<literal>PartyName</literal>”:</para>
+        <programlisting> "Party":[{
+   "PartyName":[{
+    "Name":[{"TextContent":"Custom Cotter Pins"}]
+   }]
+  }]</programlisting>
+        <para>This serialization for two “<literal>InvoiceLine</literal>” ASBIEs has as children two
+          BBIEs and an ASBIE, where that ASBIE has on BBIE child:</para>
+        <programlisting> "InvoiceLine":[{
+  "ID":[{"IdentifierContent":"1"}],
+  "LineExtensionAmount":[{"AmountContent":100.00,
+   "AmountCurrencyIdentifier":"CAD"}],
+  "Item":[{
+   "Description":[{"TextContent":"Cotter pin, MIL-SPEC"}]
+  }]
+ },{
+  "ID":[{"IdentifierContent":"2"}],
+  "LineExtensionAmount":[{"AmountContent":200.00,
+   "AmountCurrencyIdentifier":"CAD"}],
+  "Item":[{
+   "Description":[{"TextContent":"Axel"}]
+  }]
+ }]</programlisting>
+      </section>
+      <section id="S-BBIE-EXPRESSION">
+        <title>BBIE expression</title>
+        <para>Each sequence of one or more consecutive BBIE components of the same name in an
+          information bundle are serialized in user data as a single property of its parent ASBIE or
+          Document ABIE object.</para>
+        <para>The one name for that property is the name of the BBIE. The one value for that
+          property is a array of one or more objects, each object representing, in array order, the
+          sequence order of the consecutive BBIEs. If there are no BBIEs of a given name, the
+          property is absent.</para>
+        <para>Each BBIE has a required property whose name is the Core Component Type content
+          component appropriate to the primary or secondary representation term being used, and
+          whose value is the value of the business object in the information bundle.</para>
+        <para>Each BBIE may have as many additional properties with the names and values of optional
+          or required metadata supplementary components of the given instance of the Core Component
+          Type. Such is defined by UBL’s unqualified data types. Provision is made in the model for
+          qualifying the data types, and such are enumerated in UBL’s qualified data types. UBL
+          provides no qualifications in the JSON model and so it is up to the application to impose
+          qualifications as needed.</para>
+        <para>The property names are derived from the approved CCTS 2.01 core component type content
+          and supplementary component names by removing all periods and spaces. The list of
+          available property names is summarized as follows, with required properties shown in bold
+          face:</para>
+        <table
+          id="T-CCTS-2.01-APPROVED-CORE-COMPONENT-TYPE-CONTENT-AND-SUPPLEMENTARY-COMPONENTS-FOR-PERMISSIBLE-REPRESENTATION-TERMS">
+          <title>CCTS 2.01 approved core component type content and supplementary components for
+            permissible representation terms</title>
+          <tgroup cols="2">
+            <colspec colwidth="30*"/>
+            <colspec colwidth="70*"/>
+            <thead>
+              <row>
+                <entry>
+                  <para>Permissible primary and secondary representation terms</para>
+                </entry>
+                <entry>
+                  <para>Approved content and supplementary components (required components in bold
+                    face)</para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Amount</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>AmountContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <emphasis role="bold"
+                      ><literal>AmountCurrencyIdentifier</literal></emphasis></member>
+                    <member>
+                      <literal>AmountCurrencyCodeListVersionIdentifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>BinaryObject</literal>
+                    </member>
+                    <member>
+                      <literal>Graphic</literal>
+                    </member>
+                    <member>
+                      <literal>Picture</literal>
+                    </member>
+                    <member>
+                      <literal>Sound</literal>
+                    </member>
+                    <member>
+                      <literal>Video</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>BinaryObjectContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <emphasis role="bold"><literal>BinaryObjectMimeCode</literal></emphasis>
+                    </member>
+                    <member>
+                      <literal>BinaryObjectFormatText</literal>
+                    </member>
+                    <member>
+                      <literal>BinaryObjectEncodingCode</literal>
+                    </member>
+                    <member>
+                      <literal>BinaryObjectCharacterSetCode</literal>
+                    </member>
+                    <member>
+                      <literal>BinaryObjectUniformResourceIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>BinaryObjectFilenameText</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Code</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>CodeContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <literal>CodeListIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>CodeListAgencyIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>CodeListAgencyNameText</literal>
+                    </member>
+                    <member>
+                      <literal>CodeListNameText</literal>
+                    </member>
+                    <member>
+                      <literal>CodeListVersionIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>CodeNameText</literal>
+                    </member>
+                    <member>
+                      <literal>LanguageIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>CodeListUniformResourceIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>CodeListSchemeUniformResourceIdentifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>DateTime</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>DateTimeContent</literal></emphasis>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Date</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>DateContent</literal></emphasis>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Time</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>TimeContent</literal></emphasis>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Identifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>IdentifierContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <literal>IdentificationSchemeIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>IdentificationSchemeNameText</literal>
+                    </member>
+                    <member>
+                      <literal>IdentificationSchemeAgencyIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>IdentificationSchemeAgencyNameText</literal>
+                    </member>
+                    <member>
+                      <literal>IdentificationSchemeVersionIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>IdentificationSchemeDataUniformResourceIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>IdentificationSchemeUniformResourceIdentifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Indicator</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>IndicatorContent</literal></emphasis>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Measure</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>MeasureContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <emphasis role="bold"><literal>MeasureUnitCode</literal></emphasis>
+                    </member>
+                    <member>
+                      <literal>MeasureUnitCodeListVersionIdentifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Numeric</literal>
+                    </member>
+                    <member>
+                      <literal>Value</literal>
+                    </member>
+                    <member>
+                      <literal>Rate</literal>
+                    </member>
+                    <member>
+                      <literal>Percent</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>NumericContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <literal>NumericFormatText</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Quantity</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>QuantityContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <literal>QuantityUnitCode</literal>
+                    </member>
+                    <member>
+                      <literal>QuantityUnitCodeListIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>QuantityUnitCodeListAgencyIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>QuantityUnitCodeListAgencyNameText</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+              <row valign="top">
+                <entry>
+                  <simplelist>
+                    <member>
+                      <literal>Text</literal>
+                    </member>
+                    <member>
+                      <literal>Name</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+                <entry>
+                  <simplelist>
+                    <member>
+                      <emphasis role="bold"><literal>TextContent</literal></emphasis>
+                    </member>
+                    <member>
+                      <literal>LanguageIdentifier</literal>
+                    </member>
+                    <member>
+                      <literal>LanguageLocaleIdentifier</literal>
+                    </member>
+                  </simplelist>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para>Some examples of serialized BBIEs &#x2026; an identifier, a date and two notes:</para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <programlisting> "ID":[{"IdentifierContent":"123"}]</programlisting>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <programlisting> "IssueDate":[{"DateContent":"2011-09-22"}]</programlisting>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <programlisting> "Note":[{"TextContent":"Test",
+  "LanguageIdentifier":"en"},
+ {"TextContent":"Tester",
+  "LanguageIdentifier":"fr"}]</programlisting>
+            </para>
+          </listitem>
+        </itemizedlist>
+      </section>
+      <section id="S-EXTENSION-EXPRESSION">
+        <title>Extension expression</title>
+        <para>When a business document contains foreign content not defined by the business
+          vocabulary, this content is placed under a single apex containing all of the scaffolding
+          of all foreign extension content. The name of this apex is defined in UBL to be
+            “<literal>UBLExtensions</literal>”, declared as an array of one member. The apex name is
+          used as the name of the property of the Document ABIE object. </para>
+        <para>That one member of the array is an object named “<literal>UBLExtension</literal>”,
+          declared to be an array of one or more members, each member being a single extension (of
+          which there may be many). Each member is an object that may have any number of properties
+          of extension metadata, whose names are defined by the vocabulary. Each object has a
+          property with the name &#x201c;<literal>ExtensionContent</literal>&#x201d;) as an array of
+          one object. That one object defines the foreign extension content.</para>
+        <para>The definition of foreign content is out of scope of this document. Trading partners
+          must agree on the significance or insignificance of any foreign content.</para>
+        <para>The example <literal>UBL-Invoice-2.0-Enveloped.json</literal> has three foreign
+          extensions, one of which is a transliteration of the UBL extension for digital signatures.
+          As a transliteration, it no longer functions as a correctly-formed digital signature. At
+          this time there is no specification for the use of digital signatures in JSON documents
+          for UBL.</para>
+      </section>
+    </section>
+    <section id="S-UNMARSHALLING-JSON-TO-CCTS">
+      <title>Unmarshalling JSON to CCTS</title>
+      <section id="S-OVERVIEW-OF-UNMARSHALLING">
+        <title>Overview of unmarshalling</title>
+        <para>A JSON stream loaded into an application&#x2019;s variable will create in that
+          variable the objects and arrays representing the CCTS constructs of UBL.</para>
+        <para>The examples in this section are copied from the interactive interfaces of the Node.js
+          interpreter and the Python interpreter.</para>
+      </section>
+      <section id="S-JAVASCRIPT-SYNTAX">
+        <title>JavaScript syntax</title>
+        <para>This JSON representation support for CCTS objects fully supports the dot notation
+          defined in JavaScript.</para>
+        <para>The JSON stream creates an object with the optional properties of the namespaces and
+          the mandatory property of Document ABIE. The name of that property is the name of the
+          Document ABIE. The value of that property is the array of one object defining the contents
+          of the Document ABIE comprised of BBIEs and ASBIEs.</para>
+        <para>The Document ABIE and each BBIE and ASBIE must be addressed as a list that is
+          guaranteed to have at the least a single member addressed with
+            &#x201c;<literal>[0]</literal>&#x201d;.</para>
+        <note>
+          <para>Future versions of UBL may raise the cardinality of any given object and so this
+            approach is future-proof to revisions. This approach is also consistent and is used
+            without thought of cardinality and so should be easier for the programmer (if a little
+            verbose). Although a change in cardinality does not apply to the Document ABIE, the
+            array notation is used for consistency with ASBIE expressions using arrays.</para>
+        </note>
+        <para>The content of a BBIE is addressed as the object property with the name ending in
+            &#x201c;<literal>...Content</literal>&#x201d;. Supplementary components of a BBIE are
+          addressed by their name (compressed removing periods and spaces). For a complete list, see
+            <xref
+            linkend="T-CCTS-2.01-APPROVED-CORE-COMPONENT-TYPE-CONTENT-AND-SUPPLEMENTARY-COMPONENTS-FOR-PERMISSIBLE-REPRESENTATION-TERMS"
+          />.</para>
+        <para>Some examples of dot notation syntax:</para>
+        <programlisting>> obj.Invoice[0].Note[0]
+{ TextContent: 'Test', LanguageIdentifier: 'en' }
+> obj.Invoice[0].Note[1]
+{ TextContent: 'Tester', LanguageIdentifier: 'fr' }
+> obj.Invoice[0].Note[1].TextContent
+'Tester'
+> obj.Invoice[0].InvoiceLine[1].LineExtensionAmount[0].
+... AmountContent
+-3.96
+> obj.Invoice[0].InvoiceLine[1].LineExtensionAmount[0].
+... AmountCurrencyIdentifier
+'EUR'
+></programlisting>
+        <para>This approach also supports the object notation defined in JavaScript. The same
+          examples using list and object notation syntax:</para>
+        <programlisting>> obj["Invoice"][0]["Note"][0]
+{ TextContent: 'Test', LanguageIdentifier: 'en' }
+> obj["Invoice"][0]["Note"][1]
+{ TextContent: 'Tester', LanguageIdentifier: 'fr' }
+> obj["Invoice"][0]["Note"][1]["TextContent"]
+'Tester'
+> obj["Invoice"][0]["InvoiceLine"][1]["LineExtensionAmount"][0][
+... "AmountContent"] 
+-3.96
+> obj["Invoice"][0]["InvoiceLine"][1]["LineExtensionAmount"][0][
+... "AmountCurrencyIdentifier"]
+'EUR'
+></programlisting>
+      </section>
+      <section id="S-PYTHON-SYNTAX">
+        <title>Python syntax</title>
+        <para>This approach fully supports the list and dictionary notation defined in
+          Python.</para>
+        <para>The JSON stream creates a dictionary with a single array of one property. The name of
+          that property is the name of the Document ABIE. The value of that property is the object
+          defining the contents of the Document ABIE comprised of BBIEs and ASBIEs.</para>
+        <para>Each BBIE and ASBIE must be addressed as a list that is guaranteed to have at the
+          least a single member addressed with &#x201c;<literal>[0]</literal>&#x201d;.</para>
+        <note>
+          <para>Future versions of UBL may raise the cardinality of any given object and so this
+            approach is future-proof to revisions. This approach is also consistent and is used
+            without thought of cardinality and so should be easier for the programmer (if a little
+            verbose). Although a change in cardinality does not apply to the Document ABIE, the
+            array notation is used for consistency with ASBIE expressions using arrays.</para>
+        </note>
+        <para>The content of a BBIE is addressed as the dictionary property with the name ending in
+            &#x201c;<literal>Content</literal>&#x201d;. Supplementary components of a BBIE are
+          addressed by their name (compressed removing periods and spaces). For a complete list, see
+            <xref
+            linkend="T-CCTS-2.01-APPROVED-CORE-COMPONENT-TYPE-CONTENT-AND-SUPPLEMENTARY-COMPONENTS-FOR-PERMISSIBLE-REPRESENTATION-TERMS"
+          />.</para>
+        <para>Some examples using list and dictionary syntax:</para>
+        <programlisting>>>> obj["Invoice"][0]["Note"][0]
+{u'LanguageIdentifier': u'en', u'TextContent': u'Test'}
+>>> obj["Invoice"][0]["Note"][1]
+{u'LanguageIdentifier': u'fr', u'TextContent': u'Tester'}
+>>> obj["Invoice"][0]["Note"][1]["TextContent"]
+u'Tester'
+>>> obj["Invoice"][0]["InvoiceLine"][1]["LineExtensionAmount"][0][
+... "AmountContent"] 
+-3.96
+>>> obj["Invoice"][0]["InvoiceLine"][1]["LineExtensionAmount"][0][
+... "AmountCurrencyIdentifier"]
+u'EUR'
+>>></programlisting>
+        <note>
+          <para>Observe how the Python list and dictionary syntax is identical to the JavaScript
+            list and object syntax.</para>
+        </note>
+      </section>
+    </section>
+  </section>
+  <section id="S-EXAMPLE-UBL-JSON-DOCUMENTS">
+    <title>Example UBL JSON documents</title>
+    <section id="S-EXAMPLES-OVERVIEW">
+      <title>Examples overview</title>
+      <para>The examples in the <literal>json/</literal> subdirectory are transliterated from the
+        sample XML instances found in the UBL 2.1 distribution at <ulink
+          url="http://docs.oasis-open.org/ubl/os-UBL-2.1/xml/"/>.</para>
+      <para>For legibility the examples are indented. Indentation is insignificant white space and
+        optionally can be eliminated from the file.</para>
+    </section>
+    <section id="S-UBL-INVOICE-2.1-EXAMPLE-TRIVIAL.JSON">
+      <title><literal>UBL-Invoice-2.1-Example-Trivial.json</literal></title>
+      <programlisting>{"_D":"urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+ "_S":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+ "_B":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+ "Invoice":[{
+ "ID":[{"IdentifierContent":"123"}],
+ "IssueDate":[{"DateContent":"2011-09-22"}],
+ "InvoicePeriod":[{
+  "StartDate":[{"DateContent":"2011-08-01"}],
+  "EndDate":[{"DateContent":"2011-08-31"}]
+ }],
+ "AccountingSupplierParty":[{
+  "Party":[{
+   "PartyName":[{
+    "Name":[{"TextContent":"Custom Cotter Pins"}]
+   }]
+  }]
+ }],
+ "AccountingCustomerParty":[{
+  "Party":[{
+   "PartyName":[{
+    "Name":[{"TextContent":"North American Veeblefetzer"}]
+   }]
+  }]
+ }],
+ "LegalMonetaryTotal":[{
+  "PayableAmount":[{"AmountContent":100.00,
+   "AmountCurrencyIdentifier":"CAD"}]
+ }],
+ "InvoiceLine":[{
+  "ID":[{"IdentifierContent":"1"}],
+  "LineExtensionAmount":[{"AmountContent":100.00,
+   "AmountCurrencyIdentifier":"CAD"}],
+  "Item":[{
+   "Description":[{"TextContent":"Cotter pin, MIL-SPEC"}]
+  }]
+ }]
+}]}</programlisting>
+    </section>
+    <section id="S-MODIFIED-INVOICE-EXAMPLE">
+      <title>Modified invoice example</title>
+      <para>This example has multiple BBIEs for &#x201c;<literal>Note</literal>&#x201d; and multiple
+        ABIEs for &#x201c;<literal>InvoiceLine</literal>&#x201d;:</para>
+      <programlisting>{"_D":"urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+ "_S":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+ "_B":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+ "Invoice":[{
+ "ID":[{"IdentifierContent":"123"}],
+ "IssueDate":[{"DateContent":"2011-09-22"}],
+ "Note":[{"TextContent":"Test",
+  "LanguageIdentifier":"en"},
+ {"TextContent":"Tester",
+  "LanguageIdentifier":"fr"}],
+ "InvoicePeriod":[{
+  "StartDate":[{"DateContent":"2011-08-01"}],
+  "EndDate":[{"DateContent":"2011-08-31"}]
+ }],
+ "AccountingSupplierParty":[{
+  "Party":[{
+   "PartyName":[{
+    "Name":[{"TextContent":"Custom Cotter Pins"}]
+   }]
+  }]
+ }],
+ "AccountingCustomerParty":[{
+  "Party":[{
+   "PartyName":[{
+    "Name":[{"TextContent":"North American Veeblefetzer"}]
+   }]
+  }]
+ }],
+ "LegalMonetaryTotal":[{
+  "PayableAmount":[{"AmountContent":100.00,
+   "AmountCurrencyIdentifier":"CAD"}]
+ }],
+ "InvoiceLine":[{
+  "ID":[{"IdentifierContent":"1"}],
+  "LineExtensionAmount":[{"AmountContent":100.00,
+   "AmountCurrencyIdentifier":"CAD"}],
+  "Item":[{
+   "Description":[{"TextContent":"Cotter pin, MIL-SPEC"}]
+  }]
+ },{
+  "ID":[{"IdentifierContent":"2"}],
+  "LineExtensionAmount":[{"AmountContent":200.00,
+   "AmountCurrencyIdentifier":"CAD"}],
+  "Item":[{
+   "Description":[{"TextContent":"Axel"}]
+  }]
+ }]
+}]}</programlisting>
+    </section>
+    <section id="S-UBL-ORDER-2.1-EXAMPLE.JSON">
+      <title><literal>UBL-Order-2.1-Example.json</literal></title>
+      <programlisting>{"_D":"urn:oasis:names:specification:ubl:schema:xsd:Order-2",
+ "_S":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+ "_B":
+"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+ "Order":[{
+ "UBLVersionID":[{"IdentifierContent":"2.1"}],
+ "CustomizationID":[{"IdentifierContent":
+ "urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0"}],
+ "ProfileID":[{
+  "IdentifierContent":"urn:www.cenbii.eu:profile:BII01:ver1.0",
+  "IdentificationSchemeAgencyIdentifier":"BII",
+  "IdentificationSchemeIdentifier":"Profile"}],
+ "ID":[{"IdentifierContent":"34"}],
+ "IssueDate":[{"DateContent":"2010-01-20"}],
+ "IssueTime":[{"TimeContent":"12:30:00"}],
+ "Note":[{"TextContent":"Information text for the whole order"}],
+ "DocumentCurrencyCode":[{"CodeContent":"SEK"}],
+ "AccountingCostCode":[{"CodeContent":"Project123"}],
+ "ValidityPeriod":[{
+  "EndDate":[{"DateContent":"2010-01-31"}]
+ }],
+ "QuotationDocumentReference":[{
+  "ID":[{"IdentifierContent":"QuoteID123"}]
+ }],
+ "OrderDocumentReference":[{
+  "ID":[{"IdentifierContent":"RjectedOrderID123"}]
+ }],
+ "OriginatorDocumentReference":[{
+  "ID":[{"IdentifierContent":"MAFO"}]
+ }],
+ "AdditionalDocumentReference":[{
+  "ID":[{"IdentifierContent":"Doc1"}],
+  "DocumentType":[{"TextContent":"Timesheet"}],
+  "Attachment":[{
+   "ExternalReference":[{
+    "URI":
+     [{"IdentifierContent":"http://www.suppliersite.eu/sheet001.html"}]
+   }]
+  }]
+ },{
+  "ID":[{"IdentifierContent":"Doc2"}],
+  "DocumentType":[{"TextContent":"Drawing"}],
+  "Attachment":[{
+   "EmbeddedDocumentBinaryObject":[{"BinaryObjectContent":
+   "UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi",
+    "BinaryObjectMimeCode":"application/pdf"}]
+  }]
+ }],
+ "Contract":[{
+  "ID":[{"IdentifierContent":"34322"}],
+  "ContractType":[{"TextContent":"FrameworkAgreementID123"}]
+ }],
+ "BuyerCustomerParty":[{
+  "Party":[{
+   "EndpointID":[{"IdentifierContent":"7300072311115",
+    "IdentificationSchemeAgencyIdentifier":"9",
+    "IdentificationSchemeIdentifier":"GLN"}],
+   "PartyIdentification":[{
+    "ID":[{"IdentifierContent":"7300070011115",
+     "IdentificationSchemeAgencyIdentifier":"9",
+     "IdentificationSchemeIdentifier":"GLN"}]
+   },{
+    "ID":[{"IdentifierContent":"PartyID123"}]
+   }],
+   "PartyName":[{
+    "Name":[{"TextContent":"Johnssons byggvaror"}]
+   }],
+   "PostalAddress":[{
+    "ID":[{"IdentifierContent":"1234567890123",
+     "IdentificationSchemeAgencyIdentifier":"9",
+     "IdentificationSchemeIdentifier":"GLN"}],
+    "Postbox":[{"TextContent":"PoBox123"}],
+    "StreetName":[{"TextContent":"Rådhusgatan"}],
+    "AdditionalStreetName":[{"TextContent":"2nd floor"}],
+    "BuildingNumber":[{"TextContent":"5"}],
+    "Department":[{"TextContent":"Purchasing department"}],
+    "CityName":[{"TextContent":"Stockholm"}],
+    "PostalZone":[{"TextContent":"11000"}],
+    "CountrySubentity":[{"TextContent":"RegionX"}],
+    "Country":[{
+     "IdentificationCode":[{"CodeContent":"SE"}]
+    }]
+   }],
+   "PartyTaxScheme":[{
+    "RegistrationName":[{"TextContent":"Herra Johnssons byggvaror AS"}],
+    "CompanyID":[{"IdentifierContent":"SE1234567801"}],
+    "RegistrationAddress":[{
+     "CityName":[{"TextContent":"Stockholm"}],
+     "Country":[{
+      "IdentificationCode":[{"CodeContent":"SE"}]
+     }]
+    }],
+    "TaxScheme":[{
+     "ID":[{"IdentifierContent":"VAT",
+      "IdentificationSchemeIdentifier":"UN/ECE 5153",
+      "IdentificationSchemeAgencyIdentifier":"6"}]
+    }]
+   }],
+   "PartyLegalEntity":[{
+    "RegistrationName":[{"TextContent":"Johnssons Byggvaror AB"}],
+    "CompanyID":[{"IdentifierContent":"5532331183",
+     "IdentificationSchemeIdentifier":"SE:ORGNR"}],
+    "RegistrationAddress":[{
+     "CityName":[{"TextContent":"Stockholm"}],
+     "CountrySubentity":[{"TextContent":"RegionX"}],
+     "Country":[{
+      "IdentificationCode":[{"CodeContent":"SE"}]
+     }]
+    }]
+   }],
+   "Contact":[{
+    "Telephone":[{"TextContent":"123456"}],
+    "Telefax":[{"TextContent":"123456"}],
+    "ElectronicMail":[{"TextContent":"pelle@johnsson.se"}]
+   }],
+   "Person":[{
+    "FirstName":[{"TextContent":"Pelle"}],
+    "FamilyName":[{"TextContent":"Svensson"}],
+    "MiddleName":[{"TextContent":"X"}],
+    "JobTitle":[{"TextContent":"Boss"}]
+   }]
+  }],
+  "DeliveryContact":[{
+   "Name":[{"TextContent":"Eva Johnsson"}],
+   "Telephone":[{"TextContent":"1234356"}],
+   "Telefax":[{"TextContent":"123455"}],
+   "ElectronicMail":[{"TextContent":"eva@johnsson.se"}]
+  }]
+ }],
+ "SellerSupplierParty":[{
+  "Party":[{
+   "EndpointID":[{"IdentifierContent":"7302347231111",
+    "IdentificationSchemeAgencyIdentifier":"9",
+    "IdentificationSchemeIdentifier":"GLN"}],
+   "PartyIdentification":[{
+    "ID":[{"IdentifierContent":"SellerPartyID123"}]
+   }],
+   "PartyName":[{
+    "Name":[{"TextContent":"Moderna Produkter AB"}]
+   }],
+   "PostalAddress":[{
+    "ID":[{"IdentifierContent":"0987654321123",
+     "IdentificationSchemeAgencyIdentifier":"9",
+     "IdentificationSchemeIdentifier":"GLN"}],
+    "Postbox":[{"TextContent":"321"}],
+    "StreetName":[{"TextContent":"Kungsgatan"}],
+    "AdditionalStreetName":[{"TextContent":"suite12"}],
+    "BuildingNumber":[{"TextContent":"22"}],
+    "Department":[{"TextContent":"Sales department"}],
+    "CityName":[{"TextContent":"Stockholm"}],
+    "PostalZone":[{"TextContent":"11000"}],
+    "CountrySubentity":[{"TextContent":"RegionX"}],
+    "Country":[{
+     "IdentificationCode":[{"CodeContent":"SE"}]
+    }]
+   }],
+   "PartyLegalEntity":[{
+    "RegistrationName":[{"TextContent":"Moderna Produkter AB"}],
+    "CompanyID":[{"IdentifierContent":"5532332283",
+     "IdentificationSchemeIdentifier":"SE:ORGNR"}],
+    "RegistrationAddress":[{
+     "CityName":[{"TextContent":"Stockholm"}],
+     "CountrySubentity":[{"TextContent":"RegionX"}],
+     "Country":[{
+      "IdentificationCode":[{"CodeContent":"SE"}]
+     }]
+    }]
+   }],
+   "Contact":[{
+    "Telephone":[{"TextContent":"34557"}],
+    "Telefax":[{"TextContent":"3456767"}],
+    "ElectronicMail":[{"TextContent":"lars@moderna.se"}]
+   }],
+   "Person":[{
+    "FirstName":[{"TextContent":"Lars"}],
+    "FamilyName":[{"TextContent":"Petersen"}],
+    "MiddleName":[{"TextContent":"M"}],
+    "JobTitle":[{"TextContent":"Sales manager"}]
+   }]
+  }]
+ }],
+ "OriginatorCustomerParty":[{
+  "Party":[{
+   "PartyIdentification":[{
+    "ID":[{"IdentifierContent":"0987678321123",
+     "IdentificationSchemeAgencyIdentifier":"9",
+     "IdentificationSchemeIdentifier":"GLN"}]
+   }],
+   "PartyName":[{
+    "Name":[{"TextContent":"Moderna Produkter AB"}]
+   }],
+   "Contact":[{
+    "Telephone":[{"TextContent":"346788"}],
+    "Telefax":[{"TextContent":"8567443"}],
+    "ElectronicMail":[{"TextContent":"sven@moderna.se"}]
+   }],
+   "Person":[{
+    "FirstName":[{"TextContent":"Sven"}],
+    "FamilyName":[{"TextContent":"Pereson"}],
+    "MiddleName":[{"TextContent":"N"}],
+    "JobTitle":[{"TextContent":"Stuffuser"}]
+   }]
+  }]
+ }],
+ "Delivery":[{
+  "DeliveryLocation":[{
+   "Address":[{
+    "ID":[{"IdentifierContent":"1234567890123",
+     "IdentificationSchemeAgencyIdentifier":"9",
+     "IdentificationSchemeIdentifier":"GLN"}],
+    "Postbox":[{"TextContent":"123"}],
+    "StreetName":[{"TextContent":"Rådhusgatan"}],
+    "AdditionalStreetName":[{"TextContent":"2nd floor"}],
+    "BuildingNumber":[{"TextContent":"5"}],
+    "Department":[{"TextContent":"Purchasing department"}],
+    "CityName":[{"TextContent":"Stockholm"}],
+    "PostalZone":[{"TextContent":"11000"}],
+    "CountrySubentity":[{"TextContent":"RegionX"}],
+    "Country":[{
+     "IdentificationCode":[{"CodeContent":"SE"}]
+    }]
+   }]
+  }],
+  "RequestedDeliveryPeriod":[{
+   "StartDate":[{"DateContent":"2010-02-10"}],
+   "EndDate":[{"DateContent":"2010-02-25"}]
+  }],
+  "DeliveryParty":[{
+   "PartyIdentification":[{
+    "ID":[{"IdentifierContent":"67654328394567",
+     "IdentificationSchemeAgencyIdentifier":"9",
+     "IdentificationSchemeIdentifier":"GLN"}]
+   }],
+   "PartyName":[{
+    "Name":[{"TextContent":"Swedish trucking"}]
+   }],
+   "Contact":[{
+    "Name":[{"TextContent":"Per"}],
+    "Telephone":[{"TextContent":"987098709"}],
+    "Telefax":[{"TextContent":"34673435"}],
+    "ElectronicMail":[{"TextContent":"bill@svetruck.se"}]
+   }]
+  }]
+ }],
+ "DeliveryTerms":[{
+  "ID":[{"IdentifierContent":"FOT",
+   "IdentificationSchemeAgencyIdentifier":"6",
+   "IdentificationSchemeIdentifier":"IMCOTERM"}],
+  "SpecialTerms":[{"TextContent":"CAD"}],
+  "DeliveryLocation":[{
+   "ID":[{"IdentifierContent":"STO"}]
+  }]
+ }],
+ "AllowanceCharge":[{
+  "ChargeIndicator":[{"IndicatorContent":true}],
+  "AllowanceChargeReason":[{"TextContent":"Transport documents"}],
+  "Amount":[{"AmountContent":100,
+   "AmountCurrencyIdentifier":"SEK"}]
+ },{
+  "ChargeIndicator":[{"IndicatorContent":false}],
+  "AllowanceChargeReason":[{"TextContent":"Total order value discount"}],
+  "Amount":[{"AmountContent":100,
+   "AmountCurrencyIdentifier":"SEK"}]
+ }],
+ "TaxTotal":[{
+  "TaxAmount":[{"AmountContent":100,
+   "AmountCurrencyIdentifier":"SEK"}]
+ }],
+ "AnticipatedMonetaryTotal":[{
+  "LineExtensionAmount":[{"AmountContent":6225,
+   "AmountCurrencyIdentifier":"SEK"}],
+  "AllowanceTotalAmount":[{"AmountContent":100,
+   "AmountCurrencyIdentifier":"SEK"}],
+  "ChargeTotalAmount":[{"AmountContent":100,
+   "AmountCurrencyIdentifier":"SEK"}],
+  "PayableAmount":[{"AmountContent":6225,
+   "AmountCurrencyIdentifier":"SEK"}]
+ }],
+ "OrderLine":[{
+  "Note":[{"TextContent":"Freetext note on line 1"}],
+  "LineItem":[{
+   "ID":[{"IdentifierContent":"1"}],
+   "Quantity":[{"QuantityContent":120,
+    "QuantityUnitCode":"LTR"}],
+   "LineExtensionAmount":[{"AmountContent":6000,
+    "AmountCurrencyIdentifier":"SEK"}],
+   "TotalTaxAmount":[{"AmountContent":10,
+    "AmountCurrencyIdentifier":"SEK"}],
+   "PartialDeliveryIndicator":[{"IndicatorContent":false}],
+   "AccountingCostCode":[{"CodeContent":"ProjectID123"}],
+   "Delivery":[{
+    "RequestedDeliveryPeriod":[{
+     "StartDate":[{"DateContent":"2010-02-10"}],
+     "EndDate":[{"DateContent":"2010-02-25"}]
+    }]
+   }],
+   "OriginatorParty":[{
+    "PartyIdentification":[{
+     "ID":[{"IdentifierContent":"EmployeeXXX",
+      "IdentificationSchemeAgencyIdentifier":"ZZZ",
+      "IdentificationSchemeIdentifier":"ZZZ"}]
+    }],
+    "PartyName":[{
+     "Name":[{"TextContent":"Josef K."}]
+    }]
+   }],
+   "Price":[{
+    "PriceAmount":[{"AmountContent":50,
+     "AmountCurrencyIdentifier":"SEK"}],
+    "BaseQuantity":[{"QuantityContent":1,
+     "QuantityUnitCode":"LTR"}]
+   }],
+   "Item":[{
+    "Description":[{"TextContent":"Red paint"}],
+    "Name":[{"TextContent":"Falu Rödfärg"}],
+    "SellersItemIdentification":[{
+     "ID":[{"IdentifierContent":"SItemNo001"}]
+    }],
+    "StandardItemIdentification":[{
+     "ID":[{"IdentifierContent":"1234567890123",
+      "IdentificationSchemeAgencyIdentifier":"6",
+      "IdentificationSchemeIdentifier":"GTIN"}]
+    }],
+    "AdditionalItemProperty":[{
+     "Name":[{"TextContent":"Paint type"}],
+     "Value":[{"TextContent":"Acrylic"}]
+    },{
+     "Name":[{"TextContent":"Solvant"}],
+     "Value":[{"TextContent":"Water"}]
+    }]
+   }]
+  }]
+ },{
+  "Note":[{"TextContent":"Freetext note on line 2"}],
+  "LineItem":[{
+   "ID":[{"IdentifierContent":"2"}],
+   "Quantity":[{"QuantityContent":15,
+    "QuantityUnitCode":"C62"}],
+   "LineExtensionAmount":[{"AmountContent":225,
+    "AmountCurrencyIdentifier":"SEK"}],
+   "TotalTaxAmount":[{"AmountContent":10,
+    "AmountCurrencyIdentifier":"SEK"}],
+   "PartialDeliveryIndicator":[{"IndicatorContent":false}],
+   "AccountingCostCode":[{"CodeContent":"ProjectID123"}],
+   "Delivery":[{
+    "RequestedDeliveryPeriod":[{
+     "StartDate":[{"DateContent":"2010-02-10"}],
+     "EndDate":[{"DateContent":"2010-02-25"}]
+    }]
+   }],
+   "OriginatorParty":[{
+    "PartyIdentification":[{
+     "ID":[{"IdentifierContent":"EmployeeXXX",
+      "IdentificationSchemeAgencyIdentifier":"ZZZ",
+      "IdentificationSchemeIdentifier":"ZZZ"}]
+    }],
+    "PartyName":[{
+     "Name":[{"TextContent":"Josef K."}]
+    }]
+   }],
+   "Price":[{
+    "PriceAmount":[{"AmountContent":15,
+     "AmountCurrencyIdentifier":"SEK"}],
+    "BaseQuantity":[{"QuantityContent":1,
+     "QuantityUnitCode":"C62"}]
+   }],
+   "Item":[{
+    "Description":[{"TextContent":"Very good pencils for red paint."}],
+    "Name":[{"TextContent":"Pensel 20 mm"}],
+    "SellersItemIdentification":[{
+     "ID":[{"IdentifierContent":"SItemNo011"}]
+    }],
+    "StandardItemIdentification":[{
+     "ID":[{"IdentifierContent":"123452340123",
+      "IdentificationSchemeAgencyIdentifier":"6",
+      "IdentificationSchemeIdentifier":"GTIN"}]
+    }],
+    "AdditionalItemProperty":[{
+     "Name":[{"TextContent":"Hair color"}],
+     "Value":[{"TextContent":"Black"}]
+    },{
+     "Name":[{"TextContent":"Width"}],
+     "Value":[{"TextContent":"20mm"}]
+    }]
+   }]
+  }]
+ }]
+}]}</programlisting>
+    </section>
+  </section>
+  <section id="S-JSON-SCHEMA-AND-DOCUMENT-DEMONSTRATION-ENVIRONMENT">
+    <title>JSON schema and document demonstration environment</title>
+    <para>In the <literal>val/</literal> subdirectory of the ZIP file are the following
+      files:</para>
+    <variablelist>
+      <varlistentry>
+        <term><emphasis role="bold"><literal>jsonvalidate.py</literal></emphasis></term>
+        <listitem>
+          <para>A Python application to invoke the <literal>jsonschema</literal> library documented
+            at <ulink url="https://python-jsonschema.readthedocs.io/en/latest/"/>.</para>
+          <note>
+            <para>At the time of writing, it is observed that the <literal>jsonschema</literal>
+              library is not functioning correctly under Windows. The particular issue is documented
+              at <ulink url="https://github.com/Julian/jsonschema/issues/313"/>. The Windows
+              invocations are included in this Committee Note distribution in anticipation of a
+              future release of the library working successfully.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><emphasis role="bold"><literal>testjsonsamples.bat</literal> and
+              <literal>testjsonsamples.sh</literal></emphasis></term>
+        <listitem>
+          <para>Invoking the validate scripts once for each of the sample files in the
+              <literal>json/</literal> subdirectory.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><emphasis role="bold"><literal>validatejson.bat</literal> and
+              <literal>validatejson.sh</literal></emphasis></term>
+        <listitem>
+          <para>Invoking the Python application once with the arguments of a JSON schema and a JSON
+            document.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>To demonstrate the successful validation of all of the sample JSON documents with the
+      corresponding JSON schema, one would invoke the tests in a Unix-based environment as
+      follows:</para>
+    <programlisting>~/t/mytest $ ls
+json		json-schema	val
+~/t/mytest $ cd val
+~/t/mytest/val $ ls
+jsonvalidate.py		testjsonsamples.sh	validatejson.sh
+testjsonsamples.bat	validatejson.bat
+~/t/mytest/val $ sh testjsonsamples.sh 
+
+############################################################
+Validating ../json/MyTransportationStatus.json
+############################################################
+No schema validation errors.
+
+############################################################
+Validating ../json/UBL-CreditNote-2.0-Example.json
+############################################################
+No schema validation errors.
+
+############################################################
+Validating ../json/UBL-CreditNote-2.1-Example.json
+############################################################
+No schema validation errors.
+
+<emphasis>--------- (50 results elided for brevity) ---------</emphasis>
+
+############################################################
+Validating ../json/UBL-TransportationStatus-2.1-Example.json
+############################################################
+No schema validation errors.
+
+############################################################
+Validating ../json/UBL-TransportationStatusRequest-2.1-Example.json
+############################################################
+No schema validation errors.
+
+############################################################
+Validating ../json/UBL-Waybill-2.0-Example-International.json
+############################################################
+No schema validation errors.
+~/t/mytest/val $ </programlisting>
+  </section>
+  <appendix id="A-RELEASE-NOTES">
+    <title>Release Notes</title>
+    <section id="S-AVAILABILITY">
+      <title>Availability</title>
+      <para>Online and downloadable versions of this release are available from the locations
+        specified at the top of this document.</para>
+    </section>
+    <section id="S-STATUS-OF-THIS-RELEASE">
+      <title>Status of this release</title>
+      <!--
+      <para>This is an internal working draft for editors.</para>
+      -->
+      <!--<para> Release of this package marks the beginning of its internal committee review.</para>-->
+      <!--<para>Release of this package to the public marks the beginning of its first public review. </para>-->
+      <!--<para> Release of this package marks the continuation of its internal committee review.</para>-->
+      <!--      <para>Release of this package to the public marks the beginning of its
+        first public review. The UBL Technical Committee actively solicits
+        input from the user community regarding this release. See <xref
+          linkend="STATUS"/> at the beginning of this document for procedures
+        to be used in submitting comments to the Committee. Note that in
+        accordance with OASIS policies regarding intellectual property, the UBL
+        TC <emphasis role="italic">cannot</emphasis> accept input from persons
+        outside the UBL TC (including OASIS members) unless it is submitted via
+        the comment list.</para>-->
+      <!--<para><emphasis role="bold"><emphasis role="italic">THIS RELEASE IS SUBJECT TO CHANGE. IT IS PROVIDED FOR TESTING PURPOSES ONLY AND SHOULD NOT BE USED FOR PRODUCTION SYSTEMS.</emphasis></emphasis></para>-->
+      <!--<para> Release of this package marks the completion of this committee specification.</para>
+      <para>The UBL Technical Committee welcomes input from the user community regarding this
+        release. See <xref linkend="STATUS"/> at the beginning of this document for procedures to be
+        used in submitting comments to the Committee. Note that in accordance with OASIS policies
+        regarding intellectual property, the UBL TC <emphasis role="italic">cannot</emphasis> accept
+        input from persons outside the UBL TC (including OASIS members) unless it is submitted via
+        the comment list.</para>-->
+      <para>Release of this package initiates the process to develop Committee Note 01 of version
+        1.0.</para>
+    </section>
+    <section id="S-PACKAGE-STRUCTURE">
+      <title>Package Structure</title>
+      <para>This OASIS Committee Note is published as a zip archive in the <ulink url="&this-loc;/"
+          >&this-loc;/</ulink> directory. Unzipping this archive creates a directory tree containing
+        a master DocBook XML file (&name;-&stage;.xml), a generated hypertext version of this file
+        (&name;-&stage;.html), a generated PDF version of this file (&name;-&stage;.pdf), and a
+        number of subdirectories. The files in these subdirectories contain the various components
+        of this release. A description of each subdirectory is given below. Note that while the
+        &name;-&stage;.xml file is the &#8220;original&#8221; of this specification, it may not be
+        viewable in all currently available web browsers.</para>
+      <blockquote>
+        <para>
+          <variablelist>
+            <varlistentry>
+              <term><emphasis role="bold"><literal>art</literal>
+                </emphasis></term>
+              <listitem>
+                <para>Diagrams used in this note</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term><emphasis role="bold"><literal>db</literal>
+                </emphasis></term>
+              <listitem>
+                <para>DocBook documentation support files</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </para>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>json</literal>
+              </emphasis></term>
+            <listitem>
+              <para>JSON UBL 2.1 example documents</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>json-schema</literal>
+              </emphasis></term>
+            <listitem>
+              <para>JSON UBL 2.1 schemas</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis role="bold"><literal>val</literal>
+              </emphasis></term>
+            <listitem>
+              <para>Validation demonstration environment in Python</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </blockquote>
+    </section>
+    <section id="S-SUPPORT">
+      <title>Support</title>
+      <para>UBL is a volunteer project of the international business community. Inquiries regarding
+        UBL may be posted to the public ubl-dev list, archives for which are located at</para>
+      <blockquote>
+        <para><ulink url="http://lists.oasis-open.org/archives/ubl-dev/"
+            >http://lists.oasis-open.org/archives/ubl-dev/</ulink></para>
+      </blockquote>
+      <para>Subscriptions to ubl-dev can be made through the OASIS list manager at</para>
+      <blockquote>
+        <para><ulink url="http://www.oasis-open.org/mlmanage/index.php"
+            >http://www.oasis-open.org/mlmanage/index.php</ulink></para>
+      </blockquote>
+      <para>OASIS provides an official community gathering place and information resource for UBL
+        at</para>
+      <blockquote>
+        <para><ulink url="http://ubl.xml.org/">http://ubl.xml.org/</ulink></para>
+      </blockquote>
+      <para>General information regarding UBL can be found at the Wikipedia article:</para>
+      <blockquote>
+        <para><ulink url="http://www.wikipedia.org/wiki/Universal_Business_Language"
+            >http://www.wikipedia.org/wiki/Universal_Business_Language</ulink></para>
+      </blockquote>
+    </section>
+  </appendix>
+  <appendix id="A-REVISION-HISTORY">
+    <title>Revision History</title>
+    <para>This is the first release of these JSON artefacts.</para>
+  </appendix>
+  <appendix id="A-ACKNOWLEDGEMENTS" role="iso-informative">
+    <title>Acknowledgements</title>
+    <para>The following individuals have participated in the creation of this specification and are
+      gratefully acknowledged:</para>
+    <simplelist>
+      <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
+      <member>Oriol Bausa Peris, Individual</member>
+      <member>Kenneth Bengtsson, Individual</member>
+      <member>Erlend Klakegg Bergheim, Difi-Agency for Public Management and <phrase lang="none"
+          >eGovernment</phrase></member>
+      <member>Kees Duvekot, RFS Holland Holding B.V.</member>
+      <member>G. Ken Holman, Crane Softwrights Ltd.</member>
+      <member>Ole Madsen, Danish Agency for Digitisation, Ministry of Finance</member>
+      <member>Enric Staromiejski Torregrosa, everis, S.L.U.</member>
+    </simplelist>
+    <para>Appreciation is expressed to Crane Softwrights Ltd. for the use of the freely-available
+      “gc2obdndr” tool with which the JSON schemas were created from the CCTS expression in
+      genericode of UBL 2.1.</para>
+  </appendix>
+  <appendix role="non-normative" id="A-TEMPORARY-ANNEX---CHANGE-LOG">
+    <title>Temporary Annex - Change Log</title>
+    <note>
+      <para>This temporary appendix will be removed in the final version of the committee
+        note.</para>
+    </note>
+    <informaltable>
+      <tgroup cols="4">
+        <colspec colwidth="1*"/>
+        <colspec colwidth="2*"/>
+        <colspec colwidth="1*"/>
+        <colspec colwidth="8*"/>
+        <thead>
+          <row>
+            <entry>Revision</entry>
+            <entry>Date</entry>
+            <entry>Editor</entry>
+            <entry>Changes made</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>cnd02</entry>
+            <entry>05 April 2017</entry>
+            <entry>GKH</entry>
+            <entry>Cover page changes for published draft</entry>
+          </row>
+          <row>
+            <entry>cnd02wd01</entry>
+            <entry>05 April 2017</entry>
+            <entry>GKH</entry>
+            <entry>Response to comments received during public review</entry>
+          </row>
+          <row>
+            <entry>cnprd01</entry>
+            <entry>19 January 2017</entry>
+            <entry>GKH</entry>
+            <entry>Cover page changes required by TC Admin</entry>
+          </row>
+          <row>
+            <entry>cnprd01</entry>
+            <entry>11 January 2017</entry>
+            <entry>GKH</entry>
+            <entry>Cover page changes for public review</entry>
+          </row>
+          <row>
+            <entry>cnd01wd01</entry>
+            <entry>06 January 2017</entry>
+            <entry>GKH</entry>
+            <entry>Initial version of 1.0</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </appendix>
+</article>

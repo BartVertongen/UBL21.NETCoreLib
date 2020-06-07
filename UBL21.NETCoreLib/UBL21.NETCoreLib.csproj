@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>VertSoft.ubl21</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="common\UBL-CommonBasicComponents-2_1.cs" />
+    <Compile Remove="common\UBL-CommonExtensionComponents-2_1.cs" />
+    <Compile Remove="common\UBL-SignatureAggregateComponents-2_1.cs" />
+    <Compile Remove="common\UBL-SignatureBasicComponents-2_1.cs" />
+    <Compile Remove="common\UBL-xmldsig-core-schema-2_1.cs" />
+    <Compile Remove="common\xmldsig\PercentType.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CommonInterfaces.NETCoreLib">
+      <HintPath>..\Binaries\CommonInterfaces.NETCoreLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="information\json\" />
+  </ItemGroup>
+
+</Project>

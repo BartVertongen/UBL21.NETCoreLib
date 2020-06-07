@@ -1,0 +1,18 @@
+<xsd xmlns='http://microsoft.com/dotnet/tools/xsd/'>
+    <generateClasses language='CS' namespace='VertSoft.ubl21.main'>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\CCTS_CCT_SchemaModule-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-CommonAggregateComponents-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-CommonBasicComponents-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-CommonExtensionComponents-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-CommonSignatureComponents-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-CoreComponentParameters-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-ExtensionContentDataType-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-QualifiedDataTypes-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-SignatureAggregateComponents-2.1.xsd</schema>
+		<schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-SignatureBasicComponents-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-UnqualifiedDataTypes-2.1.xsd</schema>		
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-XAdESv132-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-XAdESv141-2.1.xsd</schema>
+        <schema>D:\COMPANY\Devops\UBL21.NETCoreLib\UBL21.NETCoreLib\XSDs\common\UBL-xmldsig-core-schema-2.1.xsd</schema>
+    </generateClasses>
+</xsd>
